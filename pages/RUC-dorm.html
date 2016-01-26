@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>宿舍分布</title>
+</head>
+<body>
+    <!-- ΪECharts Dom-->
+    <div id="main" style="height:600px"></div>
+    <!-- ECharts -->
+    <script src="../js/echarts/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        //·
+        require.config({
+            paths: {
+                echarts: '../js/echarts/build/dist'
+            }
+        });
+        
+        // ʹ��
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar' ,
+                'echarts/chart/radar',
+				'echarts/chart/chord',
+				'echarts/chart/force'
+            ],
+            function (ec) {
+                // ����׼���õ�dom����ʼ��echartsͼ��
+                var myChart = ec.init(document.getElementById('main')); 
+                
+               
+var option = {
+    title : {
+        text: '人大本科生宿舍分布图--2014年数据',
+        subtext: '(才怪啦，瞎编的)',
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: function (params) {
+            if (params.indicator2) { // is edge
+                return params.value.weight;
+            } else {// is node
+                return params.name
+            }
+        }
+    },
+    toolbox: {
+        show : true,
+        y:'bottom',
+        feature : {
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    legend: {
+        x: 'right',
+        data:['2010级','2011级', '2012级', '2013级','品园','知行','东风']
+    },
+    series : [
+        {
+            type:'chord',
+            radius : ['55%', '75%'],
+            center : ['50%', '50%'],
+            padding : 2,
+            sort : 'none', // can be 'none', 'ascending', 'descending'
+            sortSub : 'none', // can be 'none', 'ascending', 'descending'
+            startAngle : 90,
+            clockWise : false,
+            showScale : true,
+            showScaleText : true,
+            itemStyle : {
+                normal : {
+                    borderWidth : 0,
+                    borderColor : '#000',
+                    chordStyle : {
+                        borderWidth : 1,
+                        borderColor : '#333'
+                    },
+                    label: {
+                        show: true,
+                        color: 'red'
+                    }
+                },
+                emphasis : {
+                    borderWidth : 0,
+                    borderColor : '#000',
+                    chordStyle : {
+                        borderWidth : 2,
+                        borderColor : 'black'
+                    }
+                }
+            },
+            data : [
+                {
+                    name : '2010级',
+                    itemStyle : {
+                        normal: {
+                            color: 'rgba(255,30,30,0.5)',
+                            lineStyle : {
+                                width: 1,
+                                color: 'green'
+                            }
+                        },
+                        emphasis: {
+                            color: 'yellow',
+                            lineStyle : {
+                                width: 2,
+                                color: 'blue'
+                            }
+                        }
+                    }
+                },
+                {name : '2011级'},
+                {name : '2012级'},
+                {name : '2013级'},
+                {name : '品园'},
+                {name : '知行'},
+                {name : '东风'}
+            ],
+            matrix : [
+                [0,0,0,0,0,0,2345],
+                [0,0,0,0,1356,1567,0],
+                [0,0,0,0,376,2893,0],
+                [0,0,0,0,2891,0,0],
+                [0,1356,376,2891,2076,0,0],
+                [0,1567,2893,0,0,2110,0],
+                [2345,0,0,0,0,0,3179]
+            ],
+            markPoint : {
+                symbol: 'star',
+                data : [
+                    {name : '本科生总数', value : 11428, x:'5%', y:'40%', symbolSize:50},
+                   {name : '三个楼区住宿生总数', value : 18793, x:'5%', y:'60%', symbolSize:50}
+                ]
+            }
+        }
+    ]
+};
+                    
+
+        
+                // Ϊecharts����������� 
+                myChart.setOption(option); 
+            }
+        );
+    </script>
+</body>
