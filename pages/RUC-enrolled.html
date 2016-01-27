@@ -1,22 +1,38 @@
 ﻿<!DOCTYPE html>
 <head>
     <meta charset="utf-8">
-    <title>生源地</title>
+    <title>RUC  enrolled undergraduates' Hometown</title>
+<style type="text/css">
+@font-face {
+  font-family:"cute";
+  src: url("../fonts/cute.otf");}
+</style>
 </head>
 <body>
-    <div id="main" style="height:620px"></div>
+    
+      <table width="100%" height="100%" border="0">
+        <tr>
+          <td colspan="2"><a href="../index.html">Homepage</a></td>
+        </tr>
+        <tr>
+          <td width="66%"><div id="main" style="height:600px"></div></td>
+          <td style="font-family:cute"><p style="font-size:3em"> Tips </p>
+          <p style="font-size:1.8em">·Use the buttons on the top left corner to filter students enrolled in different ways.</p>
+          <p style="font-size:1.5em">E-E: Entrance Examination<br>
+          A-E: Autonomous Enrolled<br>
+          R-E: Recommended Admission</p>
+          <p style="font-size:1.8em">·Use the arrows on the right to change years click the Play Button to automaticly view different years.</p></td>
+        </tr>
+      </table>
     <script src="../js/echarts/build/dist/echarts.js"></script>
+    <script src="data.js"></script>
     <script type="text/javascript">
         require.config({
-            paths: {
-                echarts: '../js/echarts/build/dist'
-            }
+            paths: {echarts: '../js/echarts/build/dist'}
         });
         require(
             [
                 'echarts',
-                'echarts/chart/line',   // 加载包
-                'echarts/chart/bar',
                 'echarts/chart/map'
             ],
             function (ec) {
@@ -24,34 +40,32 @@
                 var option = {  
 				 timeline : {
         //时间轴时间列表
-        data:['2012','2013','2014','2015'],
+        data:['','','',''],
         label:{
             formatter : function(s) {
-            return s.slice(0, 10);
+            return s.slice(0,2);
           }
         },
         //时间轴的位置设定
-        y:560,
-        x:60,
-		y2:600,
-		backgroundColor:'#eeeeff',
+        y:330,
+        x:1000,
+		y2:340,
 		lineStyle:{
 		color:'#666699',
-		width:2,
+		width:1,
 		type:'dotted'
 		},
-		symbolSize:6,
+		symbolSize:1,
 		
         //时间轴播放控制
 		realtime:true,
-		controlPosition:'none'
-		
+		controlPosition:'right'
     },
 				options:[{
 				padding:200,
 				title : {
-        text: '2012年中国人民大学招生分布',
-        subtext: '数据虚构',
+        text: '2012 enrolled undergraduates',
+        subtext: 'complete data will be updated in March, 2016',
         x:'center'
     },
     tooltip : {
@@ -60,444 +74,117 @@
     legend: {
         orient: 'vertical',
         x:'left',
-        data:['高考','自主招生','保送']
-    },
-    dataRange: {
-        min: 0,
-        max: 400,
-        x: 'left',
-        y: 'bottom',
-        text:['多','少'],           // 文本，默认为数值文本
-        calculable : true,
-		color:['#ff3333','#ddffff']
-    },
-    toolbox: {
-        show: true,
-        orient : 'vertical',
-        x: 'right',
-        y: 'center',
-        feature : {
-            dataView : {show: true, readOnly: false},
-            saveAsImage : {show: true}
-        }
-    },
+        data:['E-E','A-E','R-A']},
+    dataRange: mapdatarange,
+    toolbox: maptoolbox,
     series : [
         {
-            name: '高考',
+            name: 'E-E',
             type: 'map',
             mapType: 'china',
+			 itemStyle:{
+                normal:{label:{show:true}},
+                emphasis:{label:{show:true}}
+            },
             roam: false,
-            itemStyle:{
-                normal:{label:{show:true}},
-                emphasis:{label:{show:true}}
-            },
-            data:[
-                {name: '北京',value: 286},
-                {name: '天津',value: Math.round(Math.random()*200)},
-                {name: '上海',value: 267},
-                {name: '重庆',value: Math.round(Math.random()*200)},
-                {name: '河北',value: Math.round(Math.random()*200)},
-                {name: '河南',value: Math.round(Math.random()*200)},
-                {name: '云南',value: Math.round(Math.random()*200)},
-                {name: '辽宁',value: Math.round(Math.random()*200)},
-                {name: '黑龙江',value: Math.round(Math.random()*200)},
-                {name: '湖南',value: Math.round(Math.random()*200)},
-                {name: '安徽',value: Math.round(Math.random()*200)},
-                {name: '山东',value: Math.round(Math.random()*200)},
-                {name: '新疆',value: Math.round(Math.random()*100)},
-                {name: '江苏',value: Math.round(Math.random()*200)},
-                {name: '浙江',value: Math.round(Math.random()*200)},
-                {name: '江西',value: Math.round(Math.random()*200)},
-                {name: '湖北',value: Math.round(Math.random()*200)},
-                {name: '广西',value: Math.round(Math.random()*200)},
-                {name: '甘肃',value: Math.round(Math.random()*100)},
-                {name: '山西',value: Math.round(Math.random()*200)},
-                {name: '内蒙古',value: Math.round(Math.random()*200)},
-                {name: '陕西',value: Math.round(Math.random()*200)},
-                {name: '吉林',value: Math.round(Math.random()*200)},
-                {name: '福建',value: Math.round(Math.random()*200)},
-                {name: '贵州',value: Math.round(Math.random()*100)},
-                {name: '广东',value: Math.round(Math.random()*200)},
-                {name: '青海',value: Math.round(Math.random()*100)},
-                {name: '西藏',value: Math.round(Math.random()*100)},
-                {name: '四川',value: Math.round(Math.random()*200)},
-                {name: '宁夏',value: Math.round(Math.random()*100)},
-                {name: '海南',value: Math.round(Math.random()*200)},
-                {name: '台湾',value: Math.round(Math.random()*200)},
-                {name: '香港',value: Math.round(Math.random()*200)},
-                {name: '澳门',value: Math.round(Math.random()*200)}
-            ]
+           
+            data:EE2012
         },
         {
-            name: '自主招生',
+            name: 'A-E',
             type: 'map',
             mapType: 'china',
-            itemStyle:{
-                normal:{label:{show:true}},
-                emphasis:{label:{show:true}}
-            },
-            data:[
-                {name: '北京',value: 50},
-                {name: '天津',value: 40},
-                {name: '上海',value: 40},
-                {name: '重庆',value: Math.round(Math.random()*20)},
-                {name: '河北',value: Math.round(Math.random()*20)},
-                {name: '安徽',value: Math.round(Math.random()*20)},
-                {name: '浙江',value: Math.round(Math.random()*20)},
-                {name: '江西',value: Math.round(Math.random()*20)},
-                {name: '山西',value: Math.round(Math.random()*20)},
-				{name: '江苏',value: 40},
-                {name: '吉林',value: Math.round(Math.random()*20)},
-                {name: '福建',value: Math.round(Math.random()*20)},
-                {name: '广东',value: Math.round(Math.random()*20)},
-                {name: '四川',value: Math.round(Math.random()*20)},
-                {name: '香港',value: Math.round(Math.random()*20)},
-                {name: '澳门',value: Math.round(Math.random()*20)}
-            ]
+            data:AE2012
         },
         {
-            name: '保送',
+            name: 'R-A',
             type: 'map',
             mapType: 'china',
-            itemStyle:{
-                normal:{label:{show:true}},
-                emphasis:{label:{show:true}}
-            },
-            data:[
-                 {name: '北京',value: 60},
-                {name: '天津',value: 40},
-                {name: '上海',value: 40},
-                {name: '重庆',value: Math.round(Math.random()*20)},
-                {name: '河北',value: Math.round(Math.random()*20)},
-                {name: '安徽',value: Math.round(Math.random()*20)},
-                {name: '浙江',value: Math.round(Math.random()*20)},
-                {name: '江西',value: Math.round(Math.random()*20)},
-                {name: '山西',value: Math.round(Math.random()*20)},
-                {name: '吉林',value: Math.round(Math.random()*20)},
-                {name: '福建',value: Math.round(Math.random()*20)},
-                {name: '广东',value: Math.round(Math.random()*20)},
-                {name: '四川',value: Math.round(Math.random()*20)},
-                {name: '香港',value: Math.round(Math.random()*20)},
-                {name: '澳门',value: Math.round(Math.random()*20)}
-            ]
+           
+            data:RA2012
         }
     ]
 				},
 				{
 				title : {
-        text: '2013年中国人民大学招生分布'
+        text: '2013 enrolled undergraduates'
     },
 	series:[
         {
-            name: '高考',
+            name: 'E-E',
             type: 'map',
             mapType: 'china',
             roam: false,
-            itemStyle:{
-                normal:{label:{show:true}},
-                emphasis:{label:{show:true}}
-            },
-            data:[
-                {name: '北京',value: 286},
-                {name: '天津',value: Math.round(Math.random()*200)},
-                {name: '上海',value: 267},
-                {name: '重庆',value: Math.round(Math.random()*200)},
-                {name: '河北',value: Math.round(Math.random()*200)},
-                {name: '河南',value: Math.round(Math.random()*200)},
-                {name: '云南',value: Math.round(Math.random()*200)},
-                {name: '辽宁',value: Math.round(Math.random()*200)},
-                {name: '黑龙江',value: Math.round(Math.random()*200)},
-                {name: '湖南',value: Math.round(Math.random()*200)},
-                {name: '安徽',value: Math.round(Math.random()*200)},
-                {name: '山东',value: Math.round(Math.random()*200)},
-                {name: '新疆',value: Math.round(Math.random()*100)},
-                {name: '江苏',value: Math.round(Math.random()*200)},
-                {name: '浙江',value: Math.round(Math.random()*200)},
-                {name: '江西',value: Math.round(Math.random()*200)},
-                {name: '湖北',value: Math.round(Math.random()*200)},
-                {name: '广西',value: Math.round(Math.random()*200)},
-                {name: '甘肃',value: Math.round(Math.random()*100)},
-                {name: '山西',value: Math.round(Math.random()*200)},
-                {name: '内蒙古',value: Math.round(Math.random()*200)},
-                {name: '陕西',value: Math.round(Math.random()*200)},
-                {name: '吉林',value: Math.round(Math.random()*200)},
-                {name: '福建',value: Math.round(Math.random()*200)},
-                {name: '贵州',value: Math.round(Math.random()*100)},
-                {name: '广东',value: Math.round(Math.random()*200)},
-                {name: '青海',value: Math.round(Math.random()*100)},
-                {name: '西藏',value: Math.round(Math.random()*100)},
-                {name: '四川',value: Math.round(Math.random()*200)},
-                {name: '宁夏',value: Math.round(Math.random()*100)},
-                {name: '海南',value: Math.round(Math.random()*200)},
-                {name: '台湾',value: Math.round(Math.random()*200)},
-                {name: '香港',value: Math.round(Math.random()*200)},
-                {name: '澳门',value: Math.round(Math.random()*200)}
-            ]
+           
+            data:EE2013
         },
         {
-            name: '自主招生',
+            name: 'A-E',
             type: 'map',
             mapType: 'china',
-            itemStyle:{
-                normal:{label:{show:true}},
-                emphasis:{label:{show:true}}
-            },
-            data:[
-                {name: '北京',value: 50},
-                {name: '天津',value: 40},
-                {name: '上海',value: 40},
-                {name: '重庆',value: Math.round(Math.random()*20)},
-                {name: '河北',value: Math.round(Math.random()*20)},
-                {name: '安徽',value: Math.round(Math.random()*20)},
-                {name: '浙江',value: Math.round(Math.random()*20)},
-                {name: '江西',value: Math.round(Math.random()*20)},
-                {name: '山西',value: Math.round(Math.random()*20)},
-				{name: '江苏',value: 40},
-                {name: '吉林',value: Math.round(Math.random()*20)},
-                {name: '福建',value: Math.round(Math.random()*20)},
-                {name: '广东',value: Math.round(Math.random()*20)},
-                {name: '四川',value: Math.round(Math.random()*20)},
-                {name: '香港',value: Math.round(Math.random()*20)},
-                {name: '澳门',value: Math.round(Math.random()*20)}
-            ]
+           
+            data:AE2013
         },
         {
-            name: '保送',
+            name: 'R-A',
             type: 'map',
             mapType: 'china',
-            itemStyle:{
-                normal:{label:{show:true}},
-                emphasis:{label:{show:true}}
-            },
-            data:[
-                 {name: '北京',value: 60},
-                {name: '天津',value: 40},
-                {name: '上海',value: 40},
-                {name: '重庆',value: Math.round(Math.random()*20)},
-                {name: '河北',value: Math.round(Math.random()*20)},
-                {name: '安徽',value: Math.round(Math.random()*20)},
-                {name: '浙江',value: Math.round(Math.random()*20)},
-                {name: '江西',value: Math.round(Math.random()*20)},
-                {name: '山西',value: Math.round(Math.random()*20)},
-                {name: '吉林',value: Math.round(Math.random()*20)},
-                {name: '福建',value: Math.round(Math.random()*20)},
-                {name: '广东',value: Math.round(Math.random()*20)},
-                {name: '四川',value: Math.round(Math.random()*20)},
-                {name: '香港',value: Math.round(Math.random()*20)},
-                {name: '澳门',value: Math.round(Math.random()*20)}
-            ]
+           
+            data:RA2013
         }
     ]
 				},
 				{
 				title : {
-        text: '2014年中国人民大学招生分布'
+        text: '2014 enrolled undergraduates'
     },
 	series:[
         {
-            name: '高考',
+            name: 'E-E',
             type: 'map',
             mapType: 'china',
             roam: false,
-            itemStyle:{
-                normal:{label:{show:true}},
-                emphasis:{label:{show:true}}
-            },
-            data:[
-                {name: '北京',value: 286},
-                {name: '天津',value: Math.round(Math.random()*200)},
-                {name: '上海',value: 267},
-                {name: '重庆',value: Math.round(Math.random()*200)},
-                {name: '河北',value: Math.round(Math.random()*200)},
-                {name: '河南',value: Math.round(Math.random()*200)},
-                {name: '云南',value: Math.round(Math.random()*200)},
-                {name: '辽宁',value: Math.round(Math.random()*200)},
-                {name: '黑龙江',value: Math.round(Math.random()*200)},
-                {name: '湖南',value: Math.round(Math.random()*200)},
-                {name: '安徽',value: Math.round(Math.random()*200)},
-                {name: '山东',value: Math.round(Math.random()*200)},
-                {name: '新疆',value: Math.round(Math.random()*100)},
-                {name: '江苏',value: Math.round(Math.random()*200)},
-                {name: '浙江',value: Math.round(Math.random()*200)},
-                {name: '江西',value: Math.round(Math.random()*200)},
-                {name: '湖北',value: Math.round(Math.random()*200)},
-                {name: '广西',value: Math.round(Math.random()*200)},
-                {name: '甘肃',value: Math.round(Math.random()*100)},
-                {name: '山西',value: Math.round(Math.random()*200)},
-                {name: '内蒙古',value: Math.round(Math.random()*200)},
-                {name: '陕西',value: Math.round(Math.random()*200)},
-                {name: '吉林',value: Math.round(Math.random()*200)},
-                {name: '福建',value: Math.round(Math.random()*200)},
-                {name: '贵州',value: Math.round(Math.random()*100)},
-                {name: '广东',value: Math.round(Math.random()*200)},
-                {name: '青海',value: Math.round(Math.random()*100)},
-                {name: '西藏',value: Math.round(Math.random()*100)},
-                {name: '四川',value: Math.round(Math.random()*200)},
-                {name: '宁夏',value: Math.round(Math.random()*100)},
-                {name: '海南',value: Math.round(Math.random()*200)},
-                {name: '台湾',value: Math.round(Math.random()*200)},
-                {name: '香港',value: Math.round(Math.random()*200)},
-                {name: '澳门',value: Math.round(Math.random()*200)}
-            ]
+           
+            data:EE2014
         },
         {
-            name: '自主招生',
+            name: 'A-E',
             type: 'map',
             mapType: 'china',
-            itemStyle:{
-                normal:{label:{show:true}},
-                emphasis:{label:{show:true}}
-            },
-            data:[
-                {name: '北京',value: 50},
-                {name: '天津',value: 40},
-                {name: '上海',value: 40},
-                {name: '重庆',value: Math.round(Math.random()*20)},
-                {name: '河北',value: Math.round(Math.random()*20)},
-                {name: '安徽',value: Math.round(Math.random()*20)},
-                {name: '浙江',value: Math.round(Math.random()*20)},
-                {name: '江西',value: Math.round(Math.random()*20)},
-                {name: '山西',value: Math.round(Math.random()*20)},
-				{name: '江苏',value: 40},
-                {name: '吉林',value: Math.round(Math.random()*20)},
-                {name: '福建',value: Math.round(Math.random()*20)},
-                {name: '广东',value: Math.round(Math.random()*20)},
-                {name: '四川',value: Math.round(Math.random()*20)},
-                {name: '香港',value: Math.round(Math.random()*20)},
-                {name: '澳门',value: Math.round(Math.random()*20)}
-            ]
+           
+            data:AE2014
         },
         {
-            name: '保送',
+            name: 'R-A',
             type: 'map',
             mapType: 'china',
-            itemStyle:{
-                normal:{label:{show:true}},
-                emphasis:{label:{show:true}}
-            },
-            data:[
-                 {name: '北京',value: 60},
-                {name: '天津',value: 40},
-                {name: '上海',value: 40},
-                {name: '重庆',value: Math.round(Math.random()*20)},
-                {name: '河北',value: Math.round(Math.random()*20)},
-                {name: '安徽',value: Math.round(Math.random()*20)},
-                {name: '浙江',value: Math.round(Math.random()*20)},
-                {name: '江西',value: Math.round(Math.random()*20)},
-                {name: '山西',value: Math.round(Math.random()*20)},
-                {name: '吉林',value: Math.round(Math.random()*20)},
-                {name: '福建',value: Math.round(Math.random()*20)},
-                {name: '广东',value: Math.round(Math.random()*20)},
-                {name: '四川',value: Math.round(Math.random()*20)},
-                {name: '香港',value: Math.round(Math.random()*20)},
-                {name: '澳门',value: Math.round(Math.random()*20)}
-            ]
+           
+            data:RA2014
         }
     ]
 				},
 				{
 				title : {
-        text: '2015年中国人民大学招生分布'
+        text: '2015 enrolled undergraduates'
     },
 	series:[
         {
-            name: '高考',
+            name: 'E-E',
             type: 'map',
             mapType: 'china',
             roam: false,
-            itemStyle:{
-                normal:{label:{show:true}},
-                emphasis:{label:{show:true}}
-            },
-            data:[
-                {name: '北京',value: 286},
-                {name: '天津',value: Math.round(Math.random()*200)},
-                {name: '上海',value: 267},
-                {name: '重庆',value: Math.round(Math.random()*200)},
-                {name: '河北',value: Math.round(Math.random()*200)},
-                {name: '河南',value: Math.round(Math.random()*200)},
-                {name: '云南',value: Math.round(Math.random()*200)},
-                {name: '辽宁',value: Math.round(Math.random()*200)},
-                {name: '黑龙江',value: Math.round(Math.random()*200)},
-                {name: '湖南',value: Math.round(Math.random()*200)},
-                {name: '安徽',value: Math.round(Math.random()*200)},
-                {name: '山东',value: Math.round(Math.random()*200)},
-                {name: '新疆',value: Math.round(Math.random()*100)},
-                {name: '江苏',value: Math.round(Math.random()*200)},
-                {name: '浙江',value: Math.round(Math.random()*200)},
-                {name: '江西',value: Math.round(Math.random()*200)},
-                {name: '湖北',value: Math.round(Math.random()*200)},
-                {name: '广西',value: Math.round(Math.random()*200)},
-                {name: '甘肃',value: Math.round(Math.random()*100)},
-                {name: '山西',value: Math.round(Math.random()*200)},
-                {name: '内蒙古',value: Math.round(Math.random()*200)},
-                {name: '陕西',value: Math.round(Math.random()*200)},
-                {name: '吉林',value: Math.round(Math.random()*200)},
-                {name: '福建',value: Math.round(Math.random()*200)},
-                {name: '贵州',value: Math.round(Math.random()*100)},
-                {name: '广东',value: Math.round(Math.random()*200)},
-                {name: '青海',value: Math.round(Math.random()*100)},
-                {name: '西藏',value: Math.round(Math.random()*100)},
-                {name: '四川',value: Math.round(Math.random()*200)},
-                {name: '宁夏',value: Math.round(Math.random()*100)},
-                {name: '海南',value: Math.round(Math.random()*200)},
-                {name: '台湾',value: Math.round(Math.random()*200)},
-                {name: '香港',value: Math.round(Math.random()*200)},
-                {name: '澳门',value: Math.round(Math.random()*200)}
-            ]
+           
+            data:EE2015
         },
         {
-            name: '自主招生',
+            name: 'A-E',
             type: 'map',
-            mapType: 'china',
-            itemStyle:{
-                normal:{label:{show:true}},
-                emphasis:{label:{show:true}}
-            },
-            data:[
-                {name: '北京',value: 50},
-                {name: '天津',value: 40},
-                {name: '上海',value: 40},
-                {name: '重庆',value: Math.round(Math.random()*20)},
-                {name: '河北',value: Math.round(Math.random()*20)},
-                {name: '安徽',value: Math.round(Math.random()*20)},
-                {name: '浙江',value: Math.round(Math.random()*20)},
-                {name: '江西',value: Math.round(Math.random()*20)},
-                {name: '山西',value: Math.round(Math.random()*20)},
-				{name: '江苏',value: 40},
-                {name: '吉林',value: Math.round(Math.random()*20)},
-                {name: '福建',value: Math.round(Math.random()*20)},
-                {name: '广东',value: Math.round(Math.random()*20)},
-                {name: '四川',value: Math.round(Math.random()*20)},
-                {name: '香港',value: Math.round(Math.random()*20)},
-                {name: '澳门',value: Math.round(Math.random()*20)}
-            ]
+            mapType: 'china',data:AE2015
         },
         {
-            name: '保送',
+            name: 'R-A',
             type: 'map',
-            mapType: 'china',
-            itemStyle:{
-                normal:{label:{show:true}},
-                emphasis:{label:{show:true}}
-            },
-            data:[
-                 {name: '北京',value: 60},
-                {name: '天津',value: 40},
-                {name: '上海',value: 40},
-                {name: '重庆',value: Math.round(Math.random()*20)},
-                {name: '河北',value: Math.round(Math.random()*20)},
-                {name: '安徽',value: Math.round(Math.random()*20)},
-                {name: '浙江',value: Math.round(Math.random()*20)},
-                {name: '江西',value: Math.round(Math.random()*20)},
-                {name: '山西',value: Math.round(Math.random()*20)},
-                {name: '吉林',value: Math.round(Math.random()*20)},
-                {name: '福建',value: Math.round(Math.random()*20)},
-                {name: '广东',value: Math.round(Math.random()*20)},
-                {name: '四川',value: Math.round(Math.random()*20)},
-                {name: '香港',value: Math.round(Math.random()*20)},
-                {name: '澳门',value: Math.round(Math.random()*20)}
-            ]
+            mapType: 'china',data:RA2015
         }
     ]
 				}
