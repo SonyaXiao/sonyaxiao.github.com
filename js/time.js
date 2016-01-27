@@ -71,7 +71,7 @@
 						myGreet.innerHTML = Greet;
 			}, 1000);
 			setInterval(function(){
-						myTime.innerHTML = (new Date()).getFormattedDate("hh : mm : ss");
+						myTime.innerHTML = (new Date()).getFormattedDate("nn : mm : ss");
 			}, 1000);
 			setInterval(function(){
 						myMessage.innerHTML = Message;
