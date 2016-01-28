@@ -58,7 +58,7 @@
 			localTime.innerHTML = (new Date()).getFormattedDate("hh : mm : ss");
 			localDate.innerHTML =localMonth+"-"+(new Date()).getFormattedDate("dd-yyyy")+' '+localDay;
 			myGreet.innerHTML = Greet;
-			myTime.innerHTML = (new Date()).getFormattedDate("nn : mm : ss");
+			myTime.innerHTML ="It is "+(new Date()).getFormattedDate("nn : mm : ss")+" in Beijing now.";
 			myMessage.innerHTML = Message;
 			//refresh
 			setInterval(function(){
@@ -71,7 +71,7 @@
 						myGreet.innerHTML = Greet;
 			}, 1000);
 			setInterval(function(){
-						myTime.innerHTML = (new Date()).getFormattedDate("nn : mm : ss");
+						myTime.innerHTML ="It is "+(new Date()).getFormattedDate("nn : mm : ss")+" in Beijing now.";
 			}, 1000);
 			setInterval(function(){
 						myMessage.innerHTML = Message;
