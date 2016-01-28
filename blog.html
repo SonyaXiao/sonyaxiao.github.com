@@ -2,13 +2,61 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
+<title>Sonya</title>
+<link rel="stylesheet" href="stylesheets/mystyle.css">
 </head>
-
 <body>
-<center>
-  <p><strong>May.2014 Update:</strong><a href="pages/RUC-enrolled.html"> Where are our undergraduates from?</a></p>
-  <p><a href="pages/RUC-dorm.html"> Where do our undergraduates live?</a></p>
-</center>
+<table width="100%" border="0" height="100%">
+  <tr height="30%">
+    <td width="27%">
+    	<b><p style="color:#233;font-family:cute;text-align:center;font-size:2em"><span id="lTime"></span></p></b>
+    	<b><p style="color:#666;font-family:cute;text-align:center; font-size:1em"><span id="lDate"></span></p></b>
+    </td>
+    <td width="50%">
+     <a href="index.html"><div class="navi">-Home-</div></a>
+     <a href="blog.html"><div class="navi">-Blog-</div></a>
+     <a href="gallery.html"><div class="navi">-Gallery-</div></a>
+     <a href="me.html"><div class="navi">-Me-</div></a></td>
+    <td width="23%"><a href="instruction.html"><strong style="font-family:art;font-size:1em;color:#223">[instruction]</strong></td>
+  </tr>
+  <tr>
+    <td colspan="3" >
+      <iframe name="main" id="iframepage" src="pages/blog/RUC-enrolled.html" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onLoad="iFrameHeight()"></iframe>    </td>
+  </tr>
+  <tr>
+    <td height="19"></td>
+    <td></td>
+  </tr>
+  <tr>
+   <td height="10%" colspan="3" style="background:#dde;color:#003;fon-size:1.2em;font-family:art;vertical-align:bottom"><center>
+	E-mail:<a href="Mailto://sonyaxiao@outlook.com">sonyaxiao@outlook.com</a> Cell:<a href="Tell:sonyaxiao@outlook.com">(+86)188-1158-9246</a><br />
+  	Mailing Address:<a href="">Pinyuan Block 6, Room 741, Renmin University of China<br />
+    No.59 Zhongguancun Street, Haidian District, Beijing, P.R.China(ZipCode:100872)</a>
+   </center>
+   </td>
+</tr>
+</table>
 </body>
 </html>
+<script type="text/javascript" src="js/time.js"></script>
+
+<script type="text/javascript" language="javascript">   
+
+function iFrameHeight() {   
+
+var ifm= document.getElementById("iframepage");   
+
+var subWeb = document.frames ? document.frames["iframepage"].document : ifm.contentDocument;   
+
+if(ifm != null && subWeb != null) {
+
+   ifm.height = subWeb.body.scrollHeight;
+
+   ifm.width = subWeb.body.scrollWidth;
+
+}   
+
+}   
+
+</script>
+    

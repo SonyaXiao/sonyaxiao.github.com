@@ -38,16 +38,16 @@
 			if(new Date().getMonth()==11) localMonth = "Dec";
 			//greeting
 			var Greet="";
-			if(new Date().getHours() < 7 || new Date().getHours() > 23){Greet="Good Night";}
-			else if (new Date().getHours() < 12){Greet="Good Morning~";}
-			else if (new Date().getHours() < 18){Greet="Good Afternoon!"}
-			else if (new Date().getHours() < 20){Greet="Hello~";}
-            else if (new Date().getHours() < 24){Greet="Good Evening";}
+			if(new Date().getHours() < 7 || new Date().getHours() > 23){Greet="Good night~"}
+			else if (new Date().getHours() < 12){Greet="Good morning!"}
+			else if (new Date().getHours() < 18){Greet="Good afternoon!"}
+			else if (new Date().getHours() < 20){Greet="Hello~"}
+            else if (new Date().getHours() < 24){Greet="Good evening~"}
 			//Message
 			var Message="";
-			if((new Date()).getFormattedDate("nn") < 7 || (new Date()).getFormattedDate("nn") > 23){Message="Your e-mail would be replied tomorrow.";}
-			else if ((new Date()).getFormattedDate("nn") < 21){Message ="Your e-mail would be replied soon~";}
-            else if ((new Date()).getFormattedDate("nn") < 24){Message ="Your e-mail would be replied tomorrow. In case of an emergency, please call.";}
+			if((new Date()).getFormattedDate("nn") < 7 || (new Date()).getFormattedDate("nn") > 23){Message="Your e-mail would be replied tomorrow."}
+			else if ((new Date()).getFormattedDate("nn") < 21){Message ="Your e-mail would be replied soon~"}
+            else if ((new Date()).getFormattedDate("nn") < 24){Message ="Your e-mail would be replied tomorrow. In case of an emergency, please call."}
 			//span
 			var localTime = document.getElementById("lTime");
 			var localDate = document.getElementById("lDate");
@@ -61,19 +61,9 @@
 			myTime.innerHTML ="It is "+(new Date()).getFormattedDate("nn : mm : ss")+" in Beijing now.";
 			myMessage.innerHTML = Message;
 			//refresh
-			setInterval(function(){
-						localTime.innerHTML = (new Date()).getFormattedDate("hh : mm : ss");
-			}, 1000);
-			setInterval(function(){
-						localDate.innerHTML = localMonth+"-"+(new Date()).getFormattedDate("dd-yyyy")+' '+localDay;
-			}, 1000);
-			setInterval(function(){
-						myGreet.innerHTML = Greet;
-			}, 1000);
-			setInterval(function(){
-						myTime.innerHTML ="It is "+(new Date()).getFormattedDate("nn : mm : ss")+" in Beijing now.";
-			}, 1000);
-			setInterval(function(){
-						myMessage.innerHTML = Message;
-			}, 1000);
+			setInterval(function(){localTime.innerHTML = (new Date()).getFormattedDate("hh : mm : ss")}, 1000);
+			setInterval(function(){localDate.innerHTML = localMonth+"-"+(new Date()).getFormattedDate("dd-yyyy")+' '+localDay}, 1000);
+			setInterval(function(){myGreet.innerHTML = Greet}, 1000);
+			setInterval(function(){myTime.innerHTML ="It is "+(new Date()).getFormattedDate("nn : mm : ss")+" in Beijing now."}, 1000);
+			setInterval(function(){myMessage.innerHTML = Message}, 1000);
 			

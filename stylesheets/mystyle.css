@@ -17,9 +17,11 @@
 @font-face {
   font-family:"chalk";
   src: url("../fonts/chalk.ttf");}
+a:link,a:visited{text-decoration:none;color:#223}
+a:hover,a:active{text-decoration:underline;color:#000}
 <!--structure-->
 <!--
 .mysteriousdiv{float:left}
 .frame{height:120pt}
-.navi{line-height:180%;border-left:5px solid #eee;color:#223;font-size:3em;font-family:cute}
+.navi{float:left;line-height:180%;color:#223;font-size:3em;font-weight:bold;font-family:cute}
 -->
