@@ -14,7 +14,7 @@
 @font-face {
   font-family:"chalk";
   src: url("../fonts/chalk.ttf");}
-  @font-face {
+@font-face {
   font-family:"item";
   src: url("../fonts/item.ttf");}
 a:link,a:visited{text-decoration:none;color:#223}
@@ -24,4 +24,5 @@ a:hover,a:active{text-decoration:underline;color:#000}
 .mysteriousdiv{float:left}
 .frame{height:120pt}
 .navi{float:left;line-height:180%;color:#223;font-size:3.8em;font-weight:bold;font-family:cute}
+.gallery img{height:300px}
 -->
