@@ -1,7 +1,7 @@
 @charset "utf-8";
 @font-face {
   font-family:"cute";
-  src: url("../fonts/cute.otf");}
+  src: url("../fonts/cute.ttf");}
 @font-face {
   font-family:"art";
   src: url("../fonts/art.ttf");}
@@ -9,19 +9,19 @@
   font-family:"meow";
   src: url("../fonts/meow.ttf");}
 @font-face {
-  font-family:"title";
-  src: url("../fonts/title.ttf");}
-@font-face {
   font-family:"handwrite";
   src: url("../fonts/handwrite.ttf");}
 @font-face {
   font-family:"chalk";
   src: url("../fonts/chalk.ttf");}
+  @font-face {
+  font-family:"item";
+  src: url("../fonts/item.ttf");}
 a:link,a:visited{text-decoration:none;color:#223}
 a:hover,a:active{text-decoration:underline;color:#000}
 <!--structure-->
 <!--
 .mysteriousdiv{float:left}
 .frame{height:120pt}
-.navi{float:left;line-height:180%;color:#223;font-size:3em;font-weight:bold;font-family:cute}
+.navi{float:left;line-height:180%;color:#223;font-size:3.8em;font-weight:bold;font-family:cute}
 -->
