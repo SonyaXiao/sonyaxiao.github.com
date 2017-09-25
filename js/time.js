@@ -16,7 +16,7 @@
 			
 			//Week
                         var BeijingHour = "";
-                        if ((new Date()).getFormattedDate("nn")>0) Beijinghour="hhhhh";
+                        if ((new Date()).getFormattedDate("nn")>24) Beijinghour= ((new Date()).getFormattedDate("nn")>24)-24;
 			var localDay = "";
 			if(new Date().getDay()==0) localDay = "Sun.";
             if(new Date().getDay()==1) localDay = "Mon.";
