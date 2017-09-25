@@ -15,7 +15,7 @@
 			};
 			
 			//Week
-                        var BeijingHour"";
+                        var BeijingHour = "";
                         if (new Date().getFormattedDate(/nn/)>0) Beijinghour="hhhhh";
 			var localDay = "";
 			if(new Date().getDay()==0) localDay = "Sun.";
