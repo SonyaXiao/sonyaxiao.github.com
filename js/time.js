@@ -1,4 +1,4 @@
-	(		//basic format;		
+//basic format;		
 
 			Date.prototype.getFormattedDate = function(pattern){
 
@@ -22,7 +22,7 @@
 
 					.replace(/xx/,getFullStr(this.getDay()))
 
-				.replace(/nn/,getFullStr(this.getHours()+this.getTimezoneOffset()/60+8))
+					.replace(/nn/,getFullStr(this.getHours()+this.getTimezoneOffset()/60+8))
 
 			    return pattern;
 
@@ -32,6 +32,9 @@
 
 			//Week
 
+                        var BeijingHour"";
+
+                        if (new Date().getFormattedDate(/nn/)>0) Beijinghour="hhhhh";
 
 			var localDay = "";
 
@@ -134,5 +137,3 @@
 			setInterval(function(){myTime.innerHTML ="It is "+Beijinghour+(new Date()).getFormattedDate("nn : mm : ss")+" in Beijing now."}, 1000);
 
 			setInterval(function(){myMessage.innerHTML = Message}, 1000);
-
-			
