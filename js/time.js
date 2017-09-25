@@ -10,13 +10,13 @@
 			        .replace(/mm/,getFullStr(this.getMinutes()))
 			        .replace(/ss/,getFullStr(this.getSeconds()))
 					.replace(/xx/,getFullStr(this.getDay()))
-					.replace(/nn/,getFullStr(this.getHours()+this.getTimezoneOffset()/60+8))
+				.replace(/nn/,getFullStr(this.getHours()+this.getTimezoneOffset()/60+8))
 			    return pattern;
 			};
 			
 			//Week
                         var BeijingHour = "";
-                        if (new Date().getFormattedDate(/nn/)>0) Beijinghour="hhhhh";
+                        if (new Date().getFormattedDate("nn")>0) Beijinghour="hhhhh";
 			var localDay = "";
 			if(new Date().getDay()==0) localDay = "Sun.";
             if(new Date().getDay()==1) localDay = "Mon.";
