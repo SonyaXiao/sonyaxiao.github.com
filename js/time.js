@@ -32,9 +32,6 @@
 
 			//Week
 
-                        var BeijingHour = "";
-
-                        if ((new Date()).getFormattedDate("nn")>0) Beijinghour="hhhhh";
 
 			var localDay = "";
 
