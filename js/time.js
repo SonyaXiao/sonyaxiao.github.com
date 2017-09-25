@@ -15,6 +15,8 @@
 			};
 			
 			//Week
+                        var BeijingHour"";
+                        if (new Date().getFormattedDate(/nn/)>0) Beijinghour="hhhhh";
 			var localDay = "";
 			if(new Date().getDay()==0) localDay = "Sun.";
             if(new Date().getDay()==1) localDay = "Mon.";
@@ -64,6 +66,6 @@
 			setInterval(function(){localTime.innerHTML = (new Date()).getFormattedDate("hh : mm : ss")}, 1000);
 			setInterval(function(){localDate.innerHTML = localMonth+"-"+(new Date()).getFormattedDate("dd-yyyy")+' '+localDay}, 1000);
 			setInterval(function(){myGreet.innerHTML = Greet}, 1000);
-			setInterval(function(){myTime.innerHTML ="It is "+(new Date()).getFormattedDate("nn : mm : ss")+" in Beijing now."}, 1000);
+			setInterval(function(){myTime.innerHTML ="It is "+Beijinghour+(new Date()).getFormattedDate("nn : mm : ss")+" in Beijing now."}, 1000);
 			setInterval(function(){myMessage.innerHTML = Message}, 1000);
 			
